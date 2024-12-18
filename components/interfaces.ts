@@ -12,7 +12,7 @@ export interface ICitta {
 
 export interface IUtente {
 	nome: string;
-	congnome: string;
+	cognome: string;
 	email: string;
 	pagamento: MetodoDiPagamento;
 
