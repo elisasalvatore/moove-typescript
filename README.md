@@ -1,73 +1,77 @@
 # Moove - Sistema di gestione della micromobilità condivisa
 
-Questo progetto implementa un sistema di gestione della micromobilità condivisa utilizzando TypeScript. Gli utenti possono prenotare mezzi disponibili in una città specifica, e l'amministratore della città può aggiungere nuovi mezzi alla lista.
+## Descrizione del Progetto
+
+Moove è un'applicazione di gestione di mezzi di trasporto che consente di prenotare e gestire mezzi come biciclette, scooter e monopattini. Gli utenti possono prenotare mezzi disponibili, mentre le città possono gestire i mezzi in base alla disponibilità.
 
 Per visualizzare il progetto [clicca qui](https://codepen.io/elisasalvatore/pen/OPLpwqg).
 
-## **Struttura del Progetto**
+## Funzionalità Principali
 
-### **Types e Interfaces**
+- **Gestione Mezzi:** Aggiunta e prenotazione di mezzi di trasporto.
+- **Gestione Utenti:** Registrazione e gestione delle prenotazioni degli utenti.
+- **Gestione Città:** Amministrazione dei mezzi disponibili per città.
 
-- **MezzoDiTrasporto:** Definisce i tipi dei mezzi di trasporto condivisi (`"bicicletta"`, `"scooter"`, `"monopattino"`).
-- **MetodoDiPagamento:** Definisce i metodi di pagamento supportati (`"carta"`, `"satispay"`).
+## Installazione
 
-#### **Interfaces Principali:**
+1. **Clona il repository:**
+   ```bash
+   git clone https://github.com/tuo-utente/moove.git
+   cd moove
+   ```
+2. **Installa le dipendenze:**
+   ```bash
+   npm install
+   ```
+3. **Esegui l'applicazione:**
+   ```bash
+   npm start
+   ```
 
-- `ICitta`: Gestisce la città e i mezzi disponibili.
-- `IUtente`: Gestisce le informazioni degli utenti e la prenotazione dei mezzi.
-- `IMezzo`: Definisce le proprietà e le operazioni legate ai mezzi di trasporto.
+## Configurazione
 
----
+Non è richiesta una configurazione specifica. Tuttavia, puoi modificare i dati iniziali degli utenti, dei mezzi e delle città direttamente nel file principale `index.ts`.
 
-## **Classi Implementate**
+## Utilizzo
 
-### **1. Citta**
+### 1. Creare un Mezzo
 
-Rappresenta una città che gestisce i mezzi disponibili.
+```typescript
+const nuovoMonopattino = new Mezzo("monopattino", 11111, "disponibile");
+```
 
-#### Proprietà:
+### 2. Creare un Utente
 
-- `nomeCitta`: Nome della città.
-- `mezziDisponibili`: Elenco dei mezzi disponibili.
+```typescript
+const userSofia = new Utente(
+	"Sofia",
+	"Gialli",
+	"sofiagialli@gmail.com",
+	"carta"
+);
+```
 
-#### Metodi:
+### 3. Aggiungere un Mezzo alla Città
 
-- `aggiungiMezzo(mezzo: IMezzo)`: Aggiunge un mezzo alla lista, se non è già presente.
+```typescript
+const cittaPiemonte = new Citta("Torino", mezziDisponibili);
+```
 
----
+### 4. Prenotare ed assegnare un Mezzo ad un Utente
 
-### **2. Utente**
+```typescript
+userSofia.prenotaMezzo(nuovoMonopattino);
+nuovoMonopattino.assegnaUtente(userSofia);
+```
 
-Gestisce le informazioni degli utenti e la prenotazione dei mezzi.
+## Struttura del Progetto
 
-#### Proprietà:
-
-- `nome`: Nome dell'utente.
-- `cognome`: Cognome dell'utente.
-- `email`: Email dell'utente.
-- `pagamento`: Metodo di pagamento.
-
-#### Metodi:
-
-- `prenotaMezzo(mezzo: IMezzo)`: Prenota un mezzo disponibile.
-
----
-
-### **3. Mezzo**
-
-Definisce le informazioni e lo stato dei mezzi.
-
-#### Proprietà:
-
-- `tipo`: Tipo di mezzo (`"bicicletta"`, `"scooter"`, `"monopattino"`).
-- `id`: Identificativo univoco del mezzo.
-- `disponibile`: Stato del mezzo (`"disponibile"` o `"in uso"`).
-
-#### Metodi:
-
-- `assegnaUtente(utente: IUtente)`: Assegna un mezzo a un utente se disponibile.
-
----
+- **Types:** Definisce i tipi `MezzoDiTrasporto` e `MetodoDiPagamento`.
+- **Interfaces:** Definisce le interfacce per `ICitta`, `IUtente` e `IMezzo`.
+- **Classi:**
+  - `Citta`: Gestisce i mezzi in una città specifica.
+  - `Utente`: Rappresenta gli utenti che utilizzano i mezzi.
+  - `Mezzo`: Gestisce le informazioni sui mezzi.
 
 ## **Esempi di Utilizzo**
 
@@ -85,7 +89,7 @@ const userAnna = new Utente("Anna", "Verdi", "annaverdi@gmail.com", "satispay");
 ### **2. Prenotazione e Assegnazione**
 
 ```typescript
-userLuca.prenotaMezzo(monopattino); // Fallisce perché è già in uso
+userLuca.prenotaMezzo(monopattino); // Fallisce perché il mezzo è già in uso
 scooter.assegnaUtente(userAnna); // Successo
 ```
 
@@ -100,8 +104,6 @@ cittaPiemonte.aggiungiMezzo(nuovoMonopattino); // Successo
 cittaPiemonte.aggiungiMezzo(scooter); // Fallisce: già esistente
 ```
 
----
-
 ## **Requisiti**
 
 - **Linguaggio:** TypeScript
@@ -112,11 +114,10 @@ cittaPiemonte.aggiungiMezzo(scooter); // Fallisce: già esistente
 1. Clona il repository.
 2. Installa le dipendenze (se applicabile).
 3. Compila ed esegui il codice utilizzando il comando:
+
    ```bash
    tsc index.ts && node index.js
    ```
-
----
 
 ## Contatti
 
