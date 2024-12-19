@@ -2,6 +2,8 @@
 
 Questo progetto implementa un sistema di gestione della micromobilità condivisa utilizzando TypeScript. Gli utenti possono prenotare mezzi disponibili in una città specifica, e l'amministratore della città può aggiungere nuovi mezzi alla lista.
 
+Per visualizzare il progetto [clicca qui](https://codepen.io/elisasalvatore/pen/OPLpwqg).
+
 ## **Struttura del Progetto**
 
 ### **Types e Interfaces**
