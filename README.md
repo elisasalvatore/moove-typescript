@@ -116,7 +116,7 @@ cittaPiemonte.aggiungiMezzo(scooter); // Fallisce: già esistente
 3. Compila ed esegui il codice utilizzando il comando:
 
    ```bash
-   tsc index.ts && node index.js
+   tsc script.ts && node script.js
    ```
 
 ## Contatti
